@@ -5,43 +5,7 @@
 //  Created by Chandram Dutta on 04/12/24.
 //
 
-import Algorithms
 import Foundation
-
-struct Point: Equatable {
-	let x: Int
-	let y: Int
-
-	func isInBounds(_ row: Int, _ col: Int) -> Bool {
-		self.x >= 0 && self.x < row && self.y >= 0 && self.y < col
-	}
-
-	static func == (_ self: Point, _ other: Point) -> Bool {
-		self.x == other.x && self.y == other.y
-	}
-
-	func next(_ direction: Direction) -> Point {
-		.init(x: self.x + direction.deltaX, y: self.y + direction.deltaY)
-	}
-}
-
-struct Direction {
-	let deltaX: Int
-	let deltaY: Int
-
-	static let l = Direction(deltaX: -1, deltaY: 0)
-	static let r = Direction(deltaX: 1, deltaY: 0)
-	static let u = Direction(deltaX: 0, deltaY: -1)
-	static let d = Direction(deltaX: 0, deltaY: 1)
-	static let lu = Direction(deltaX: -1, deltaY: -1)
-	static let ru = Direction(deltaX: 1, deltaY: -1)
-	static let ld = Direction(deltaX: -1, deltaY: 1)
-	static let rd = Direction(deltaX: 1, deltaY: 1)
-
-	static let all: [Direction] = [l, r, u, d, lu, ru, ld, rd]
-
-	static let diag: [Direction] = [lu, rd, ld, rd]
-}
 
 struct Day04: AdventDay {
 
